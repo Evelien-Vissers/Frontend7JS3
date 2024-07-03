@@ -2,8 +2,6 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
-
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -12,9 +10,34 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe kan ik iedere waarde van de array checken op deze conditie?
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
-// Log het antwoord in de terminal.
 
+// Log het antwoord in de terminal.
 // ---- Verwachte uitkomst: 6
+
+//Onderstaande array genaamd 'grades' bevat de cijfers:
+const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+//Onderstaande functie 'countCumLaudeStudents' neemt de array van cijfers als parameters
+function countCumLaudeStudents(grades) {
+    // Variabele om het aantal cum laude studenten bij te houden, waarbij waarde 0 wordt geinitialiseerd om het aantal cum laude studenten bij te houden:
+    let cumLaudeCount = 0;
+
+    // Itereren door de array van cijfers dmv for-loop. De lus loopt van 0 tot grades.length -1
+    for (let i = 0; i < grades.length; i++) {
+        // Checken of het cijfer 8 of hoger is dmv if-statement:
+        if (grades[i] >= 8) {
+            // Verhoog de teller als het cijfer 8 of hoger is
+            cumLaudeCount++;
+        }
+    }
+
+    // Retourneer het totaal aantal cum laude studenten
+    return cumLaudeCount;
+}
+
+// Verwachte uitkomst: 6
+console.log(countCumLaudeStudents(grades));
+
 
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
@@ -27,7 +50,25 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude(grades) { //Deze functie accepteer 1 parameter 'grades', wat een array van cijfers is
+    //Variabele om het aantal cum laude studenten bij te houden:
+    let cumLaudeCount = 0; // Deze variabele wordt geinitialiseerd op 0 om het aantal cum laude studenten bij te houden
 
+    //Itereren door array van cijfers: een for-loop wordt gebruikt om door elke waarde van 'grades' te lopen.
+    for (let i = 0; i < grades.length; i++) {
+        //Checken of het cijfer 8 of hoger is
+        if (grades[i] >= 8) {
+            //Verhoog de teller als het cijfer 8 of hoger is:
+            cumLaudeCount++;
+        }
+    }
+    // Retourneer het totaal aantal cum laude studenten
+    return cumLaudeCount++;
+}
+//Verwachte uitkomsten
+console.log(cumLaude([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6])); //geeft 6
+console.log(cumLaude([6, 4, 5])); //geeft 0
+console.log(cumLaude([8, 9, 4, 6, 10])); //geeft 3
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -41,6 +82,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+
+function calculateAverage(grades) {
+    //Variabele om de som van alle cijfers bij te houden ("Hoe wordt een gemiddelde berekend?")
+    let sum = 0;
+
+    //Itereren door de array van cijfers
+    for (let i = 0; i < grades.length; i++) {
+        // Tel het huidige cijfer op bij de som
+        sum += grades[i];
+    }
+    //Bereken en retourneer het gemiddelde door de som te delen door het aantal cijfers:
+    return sum / grades.length;
+}
+//Verwachte uitkomst:
+console.log(calculateAverage(grades));
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
