@@ -109,12 +109,35 @@ console.log(calculateAverage(grades));
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
+function averageGrade(grades) { //Accepteert 1 parameter 'grades' wat een array van cijfers is
+    //Variabele om de som van alle cijfers bij te houden
+    let sum = 0; //'Sum' wordt ginitialiseerd op 0 om de som van alle cijfers bij te houden.
+
+    //Itereren door de array van cijfers dmv for-loop:
+    for (let i = 0; i < grades.length; i++) {
+        //Tel het huidige cijfer op bij de som
+        sum += grades[i];
+    }
+    //Bereken en retourneer het gemiddelde door de som te delen door het aantal cijfers:
+    return sum / grades.length;
+
+    //Uitwerking 2b:
+    // Bereken het gemiddelde door de som te delen door het aantal cijfers
+    // const average = sum / grades.length;
+    // Rond het gemiddelde af op 2 decimalen
+    // return Math.round(average * 100) / 100; - 'Math.round' wordt hier gebruikt om het gemiddelde af te ronden op 2 decimalen.
+
+}
+//Verwachte uitkomsten
+console.log(averageGrade([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6])); //geeft 6.642857142857143
+console.log(averageGrade([6, 4, 5])); //geeft 5
+console.log(averageGrade([8, 9, 4, 6, 10])); //geeft 7.4
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
+//Zie hierboven uitwerking in regels 124-128.
 
 
 /* Bonusopdracht: hoogste cijfer */
