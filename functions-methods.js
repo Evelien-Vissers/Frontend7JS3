@@ -27,6 +27,28 @@ function getEmailDomain(email) {
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
 
+//Onderstaande functie gebruikt de 'indexOf' en 'substring' methoden om de domeinnaam te extraheren
+function typeOfEmail(email) {
+    //Zoek positie van de '@' in het emailadres
+    const atIndex = email.indexOf("@");
+    //Gebruik de substring methode om het deel na de '@' op te halen
+    const domain = email.substring(atIndex + 1);
+
+    //Controleer het domein en retourneer het juiste type
+    if (domain === "novi.nl") {
+        return "Medewerker";
+    } else if (domain === "novi-education.nl") {
+        return "Student";
+    } else {
+        return "Extern";
+    }
+}
+//Verwachte uitkomsten
+console.log(typeOfEmail("n.eeken@novi-education.nl")); //geeft "Student"
+console.log(typeOfEmail("t.mellink@novi.nl")); //geeft "Medewerker"
+console.log(typeOfEmail("novi.nlaapjesk@outlook.com")); //geeft "Exter"
+console.log(typeOfEmail("a.wiersma@outlook.com")); //geeft "Extern"
+
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
