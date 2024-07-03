@@ -62,3 +62,25 @@ console.log(typeOfEmail("a.wiersma@outlook.com")); //geeft "Extern"
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity(email) {
+    //Controleer of er een '@' in voorkomt. Wanneer waarde -1 is, betekent dit dat er geen '@' in het emailadres staat
+    if (email.indexOf('@') === -1) {
+        return false;
+    }
+    //Controleer of er een ',' in voorkomt. Wanneer de waarde NIET -1 is, betekent dit dat er een ',' in het emailadres staat.
+    if (email.indexOf(',') !== -1) {
+        return false;
+    }
+    //Controleer of het laatste karakter een '.' is. Wanneer de waarde gelijk is aan 'email.length -1', betekent dit dat het laatste teken een '.' is - wat het emailadres ongeldig maakt.
+    if (email.lastIndexOf('.') === email.length - 1) {
+        return false;
+    }
+    return true;
+}
+//Verwachte uitkomsten
+console.log(checkEmailValidity("n.eeken@novi.nl")); //geeft true
+console.log(checkEmailValidity("tessmellink@novi.nl")); //geeft true
+console.log(checkEmailValidity("n.eekenanovi.nl")); //geeft false
+console.log(checkEmailValidity("n.eeken@novinl.")); //geeft false
+console.log(checkEmailValidity("tessmellink@novi,nl")); //geeft false
