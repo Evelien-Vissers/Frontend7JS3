@@ -151,6 +151,24 @@ console.log(averageGrade([8, 9, 4, 6, 10])); //geeft 7.4
 
 // ---- Verwachte uitkomst: 9
 
+function findHighestGrade(grades) {
+    //Initaliseer de variabele om het hoogste cijfer bij te houden:
+    let highestGrade = 0;
+
+    //Itereren door de array van cijfers
+    for (let i = 0; i < grades.length; i++) {
+        //Check of het huidige cijfer hoger is dan highestGrade
+        if (grades[i] > highestGrade) {
+            //Update highestGrade met huidige cijfer
+            highestGrade = grades[i];
+        }
+    }
+    //Retourneer het hoogste cijfer:
+    return highestGrade;
+}
+//Verwachte uitkomst: 9
+console.log(findHighestGrade(grades));
+
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -161,3 +179,23 @@ console.log(averageGrade([8, 9, 4, 6, 10])); //geeft 7.4
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade(grades) {
+    //Initialiseer variabele om het hoogste cijfer bij te houden:
+    let highest = grades[0];
+
+    //Itereren door de array van cijfers
+    for (let i = 0; i < grades.length; i++) {
+        //Checken of het huidige cijfer hoger is dan highest
+        if (grades[i] > highest) {
+            //Update highest met huidige cijfer
+            highest = grades[i];
+        }
+    }
+    //Retourneer het hoogste cijfer
+    return highest;
+}
+//Verwachte uitkomsten
+console.log(highestGrade([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6])); //geeft 9
+console.log(highestGrade([6, 4, 5])); //geeft 6
+console.log(highestGrade([8, 9, 4, 6, 10])); //geeft 10
